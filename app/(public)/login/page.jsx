@@ -5,6 +5,7 @@ import GoogleIcon from "@/public/icons/GoogleIcon";
 import Link from "next/link";
 import React from "react";
 import { loginFormFiels } from "@/config/constants";
+import { useAuth } from "@/context/AuthContext";
 
 const formFields = [
     { type: "text", name: "email", label:'Email'},
@@ -13,8 +14,12 @@ const formFields = [
 
 const Login = () => {
 
+  const {signIn, forgotPassword} = useAuth
+
   const initalValues = { email: "", password: "" };
-  const handleSubmit = (values) => {};
+  const handleSubmit = (values) => {
+    signIn(values.email, values.password);
+  };
 
   return (
     <Formik onSubmit={handleSubmit} initialValues={initalValues}>
@@ -48,7 +53,8 @@ const Login = () => {
         </button>
         <button
           className="flex items-center justify-between btn-danger"
-          type="button"
+          type="button" 
+          onClick={() => signupProvider()}
         >
           Continue with Google
           <GoogleIcon />
