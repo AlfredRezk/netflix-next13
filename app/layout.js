@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "@/context/AuthContext";
-import 'react-indiana-drag-scroll/dist/style.css';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
